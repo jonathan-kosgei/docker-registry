@@ -1,0 +1,19 @@
+server:
+  addr: ":5001"
+
+token:
+  issuer: "Acme auth server"  # Must match issuer in the Registry config.
+  expiration: 900
+  certificate: "/certs/registry_cert.pem"
+  key: "/certs/registry_key.pem"
+
+users:
+  # Password is specified as a BCrypt hash. Use htpasswd -B to generate.
+  "atsushi":
+    password: "$2y$05$zJ0a7jklKGReahnw8uGEn.87thBR2TBgq8tDi08KNW/QAqCKugXBm"  # test
+
+acl:
+  - match: {account: "atsushi"}
+    actions: ["*"]
+    comment: "atsushi has full access to everything."
+  # Access is denied by default.

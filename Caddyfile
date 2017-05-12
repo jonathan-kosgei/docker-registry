@@ -1,0 +1,8 @@
+registry.codable-api.io
+proxy /auth http://docker_auth:5001 {
+transparent
+}
+proxy / http://registry:5000 {
+transparent
+}
+tls jonathan@saharacluster.com

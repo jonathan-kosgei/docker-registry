@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  registry:
+    image: "registry:2"
+    depends_on:
+      - caddy
+    ports:
+      - 5000:5000
+    volumes:
+      - /var/lib/docker-registry:/var/lib/docker-registry    
+      - ./config.yml/:/etc/docker/registry/config.yml:ro
+      - /certs:/certs
+  caddy:
+    image: "abiosoft/caddy"
+    ports:
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile:ro
+      - /.caddy:/root/.caddy
+  docker_auth:
+    image:  "cesanta/docker_auth:1"
+    ports:
+      - 5001:5001
+    volumes:
+      - /certs:/certs
+      - ./auth_config.yml:/config/auth_config.yml:ro
+      - /var/log/docker_auth:/logs
+    

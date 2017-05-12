@@ -1,0 +1,15 @@
+version: 0.1
+loglevel: debug
+storage:
+  filesystem:
+    rootdirectory: /var/lib/docker-registry
+  delete:
+    enabled: true
+http:
+  addr: :5000
+auth:
+  token:
+    realm: https://registry.codable-api.io/auth
+    service: registry.codable-api.io:443
+    issuer: "Acme auth server"
+    rootcertbundle: "/certs/registry_cert.pem"
