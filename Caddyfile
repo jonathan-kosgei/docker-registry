@@ -1,4 +1,4 @@
-registry.codable-api.io
+registry.example.com
 proxy /auth http://docker_auth:5001 {
 transparent
 }

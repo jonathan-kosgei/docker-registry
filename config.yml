@@ -9,7 +9,7 @@ http:
   addr: :5000
 auth:
   token:
-    realm: https://registry.codable-api.io/auth
-    service: registry.codable-api.io:443
+    realm: https://registry.example.com/auth
+    service: registry.example.com:443
     issuer: "Acme auth server"
     rootcertbundle: "/certs/registry_cert.pem"

@@ -13,7 +13,7 @@ apt-get install apache2-utils -y
 # Generate certs
 mkdir -p /certs
 openssl req -x509 -nodes -newkey rsa:4096 -keyout /certs/registry_key.pem -out /certs/registry_cert.pem -days 365 \
--subj "/C=CA/ST=Ontario/L=Toronto/O=Aiva Labs/OU=Aiva/CN=registry.codable-api.io"
+-subj "/C=CA/ST=Ontario/L=Toronto/O=Aiva Labs/OU=Aiva/CN=registry.example.com"
 
 # Add default user
 chmod +x add_user.sh
